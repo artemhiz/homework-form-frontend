@@ -1,38 +1,161 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+:root {
+    --color-one: #01204E;
+    --color-two: rgb(2, 131, 145);
+    --color-three: #f6dcac;
+    --color-four: #FEAE6F;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1, h2, h3, h4, h5, h6 {
+    font-style: italic;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+    background-image: url(assets/bg.jpg);
+    background-size: cover;
+    background-position: center;
+    min-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    font-family: "Nunito Sans", sans-serif;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.bg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition-duration: .625s;
 }
-
-.App-link {
-  color: #61dafb;
+button.rate {
+    font-size: 20px;
+    background: none;
+    text-decoration: underline;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    transition: .15625s;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button.rate:hover {
+    background-color: rgba(2, 131, 145, 0.5);
+}
+button.back {
+    background: none;
+    border: none;
+    font-style: italic;
+    font-size: 20px;
+    padding: 10px 15px;
+}
+.bg.rating1 {
+    backdrop-filter: blur(10px) contrast(30%);
+    -webkit-backdrop-filter: blur(10px) contrast(30%);
+}
+.bg.rating2 {
+    backdrop-filter: blur(10px) contrast(50%);
+    -webkit-backdrop-filter: blur(10px) contrast(50%);
+}
+.bg.rating3 {
+    backdrop-filter: blur(10px) contrast(100%);
+    -webkit-backdrop-filter: blur(10px) contrast(100%);
+}
+.bg.rating4 {
+    backdrop-filter: blur(10px) contrast(150%);
+    -webkit-backdrop-filter: blur(10px) contrast(150%);
+}
+.bg.rating5 {
+    backdrop-filter: blur(10px) contrast(200%) brightness(90%);
+    -webkit-backdrop-filter: blur(10px) contrast(200%) brightness(90%);
+}
+.bg.closed {
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    transition-duration: .3125s;
+}
+.bg .window {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    color: var(--color-one);
+    min-width: 40vw;
+    min-height: 40vh;
+    padding: 20px;
+    border-radius: 2ch;
+}
+.bg.closed .window {
+    display: none;
+}
+.window .heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.window .body {
+    margin: auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: .625s;
+}
+.window .questionary {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+}
+.window .questionary label {
+    display: flex;
+    gap: 5px;
+}
+.window .questionary label input {
+    flex: 1;
+}
+.window .rating {
+    display: flex;
+    gap: 5px;
+}
+.window .rating button {
+    color: var(--color-three);
+    font-size: 30px;
+    background-color: var(--color-two);
+    border: none;
+    border-radius: 50%;
+}
+.window button.send {
+    margin-top: 10px;
+    background-color: var(--color-three);
+    color: var(--color-one);
+    font-style: italic;
+    font-size: 18px;
+    font-weight: bold;
+    border: 3px dashed transparent;
+    border-radius: 15px;
+    padding: 5px 20px;
+    transition: .3125s;
+}
+.window button.send:hover:not(:disabled) {
+    background-color: var(--color-two);
+    color: var(--color-three);
+    border: 3px dashed var(--color-three);
+}
+.window button.send:disabled {
+    background-color: var(--color-four);
+    filter: grayscale(1);
 }
